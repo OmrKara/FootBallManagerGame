@@ -6,19 +6,7 @@ Uygulama yerel bilgisayarda çalışır. Arayüz FastAPI sunucusundan yayınlan�
 
 ## Canlı demo
 
-Bu proje Render üzerinden yayınlanmaktadır: [Oyunu aç](https://footballmanagergame.onrender.com/).
-
-GitHub Pages yalnızca statik dosya sunar; Python/FastAPI sunucusunu çalıştıramadığı için oyunu tek başına orada yayınlamak mümkün değildir. Render, aynı servisten hem arayüzü hem backend'i sunar.
-
-Yayınlamak için:
-
-1. Projedeki değişiklikleri GitHub'daki ana dala commit edip push et.
-2. [Render'a ücretsiz kayıt ol](https://render.com/) ve GitHub hesabını bağla.
-3. Render Dashboard'da **New → Blueprint** seçip bu GitHub reposunu bağla. Render, kökteki render.yaml dosyasını okuyup Frankfurt bölgesinde ücretsiz web servisini oluşturur.
-4. Deploy tamamlanınca Render'ın verdiği servis adresini kopyalayıp bu bölümdeki canlı demo bağlantısına ekle.
-
-Ücretsiz servis 15 dakika istek almazsa uykuya geçer; bir sonraki ziyaretin açılması yaklaşık bir dakika sürebilir. Bu demo bellek modunu kullandığından sunucu uyuduğunda veya yeniden başladığında hesaplar ve kariyer ilerlemesi sıfırlanır. Kısa süreli paylaşım için ayrıca veritabanı kurmak gerekmez.
-
+Bu proje Render üzerinden yayınlanmaktadır: [Oyunu aç](https://footballmanagergame.onrender.com/). Ücretsiz bir sağlayıcı kullanıldığından sitenin açılması bazen birkaç saniye alabiliyor. 
 ## Geliştiriciler
 
 - Ömer Kara
