@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: football-manager-game
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: BIL372_USER_STORE
+        value: memory
+      - key: PYTHON_VERSION
+        value: 3.13.5

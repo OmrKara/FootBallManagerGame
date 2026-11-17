@@ -4,6 +4,21 @@ BİL372 Veritabanı Sistemleri dersi için geliştirilen bu proje, kullanıcın�
 
 Uygulama yerel bilgisayarda çalışır. Arayüz FastAPI sunucusundan yayınlanır; oyun kuralları ve maç simülasyonu sunucuda yürütülür. Başlangıçta veriler bellekte tutulabilir, PostgreSQL kurulumu tamamlandığında kalıcı kayıt moduna geçilebilir.
 
+## Canlı demo
+
+Bu proje Render üzerinden yayınlanmaktadır: [Oyunu aç](https://footballmanagergame.onrender.com/).
+
+GitHub Pages yalnızca statik dosya sunar; Python/FastAPI sunucusunu çalıştıramadığı için oyunu tek başına orada yayınlamak mümkün değildir. Render, aynı servisten hem arayüzü hem backend'i sunar.
+
+Yayınlamak için:
+
+1. Projedeki değişiklikleri GitHub'daki ana dala commit edip push et.
+2. [Render'a ücretsiz kayıt ol](https://render.com/) ve GitHub hesabını bağla.
+3. Render Dashboard'da **New → Blueprint** seçip bu GitHub reposunu bağla. Render, kökteki render.yaml dosyasını okuyup Frankfurt bölgesinde ücretsiz web servisini oluşturur.
+4. Deploy tamamlanınca Render'ın verdiği servis adresini kopyalayıp bu bölümdeki canlı demo bağlantısına ekle.
+
+Ücretsiz servis 15 dakika istek almazsa uykuya geçer; bir sonraki ziyaretin açılması yaklaşık bir dakika sürebilir. Bu demo bellek modunu kullandığından sunucu uyuduğunda veya yeniden başladığında hesaplar ve kariyer ilerlemesi sıfırlanır. Kısa süreli paylaşım için ayrıca veritabanı kurmak gerekmez.
+
 ## Geliştiriciler
 
 - Ömer Kara
@@ -82,6 +97,7 @@ run_demo.ps1 bellek modunu seçtiği için PostgreSQL’de çalıştırırken yu
 backend/       FastAPI uçları, oyun kuralları, maç motoru ve PostgreSQL katmanı
 web/           Tarayıcı arayüzü (HTML, CSS, JavaScript)
 docs/          SQL kayıt örnekleri ve OpenAPI tanımı
+render.yaml    Render için ücretsiz web servisi tanımı
 test_*.py      Backend oyun mantığı ve veri katmanı için testler
 requirements.txt
 run_demo.ps1
