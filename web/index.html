@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10251e">
+  <title>Kulüp Yönetimi · BİL372</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="auth-view" class="auth-screen">
+    <section class="auth-card">
+      <div class="brand-mark">11</div>
+      <p class="eyebrow">BİL372 · VERİTABANI SİSTEMLERİ</p>
+      <h1>Kulübünü yönet.<br><span>Ligi kazan.</span></h1>
+      <p class="muted">Kendi takımını kur, kadronu seç ve altı haftalık sezonu oyna.</p>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-auth-mode="login">Giriş yap</button>
+        <button class="auth-tab" data-auth-mode="register">Hesap oluştur</button>
+      </div>
+      <form id="auth-form">
+        <label>Kullanıcı adı<input name="username" autocomplete="username" minlength="1" maxlength="50" required placeholder="ör. menajer01"></label>
+        <label>Şifre<input name="password" type="password" autocomplete="current-password" minlength="1" maxlength="128" required placeholder="Şifren"></label>
+        <button class="button primary full" type="submit" id="auth-submit">Giriş yap</button>
+      </form>
+      <p class="auth-note">Demo hesabı ve kariyer sunucunun bellek modunda tutulur.</p>
+    </section>
+  </div>
+
+  <div id="setup-view" class="auth-screen hidden">
+    <section class="auth-card setup-card">
+      <div class="brand-mark">11</div>
+      <p class="eyebrow">YENİ KARİYER</p>
+      <h1>Kulübüne bir<br><span>isim ver.</span></h1>
+      <p class="muted">Bu isim sezonun boyunca lig tablosunda ve maçlarda görünecek.</p>
+      <form id="club-form">
+        <label>Kulüp adı<input name="clubName" minlength="1" maxlength="60" required placeholder="Ankara Yıldızları"></label>
+        <button class="button primary full" type="submit">Kulübü kur <span aria-hidden="true">→</span></button>
+      </form>
+      <button class="link-button logout-setup">Hesaptan çıkış yap</button>
+    </section>
+  </div>
+
+  <div id="app-view" class="hidden">
+    <header class="topbar">
+      <a class="brand" href="#home" data-view="home"><span class="brand-mark small">11</span><span>KLÜP<span class="brand-dot">.</span></span></a>
+      <div class="club-chip"><span class="live-dot"></span><span id="top-club">Kulübüm</span><span class="chip-divider">·</span><span id="top-season">Sezon 1</span></div>
+      <div class="top-actions"><span class="budget-chip" id="top-budget">₺2.000.000</span><span class="user-name" id="top-user"></span><button id="logout-button" class="icon-button" title="Çıkış yap" aria-label="Çıkış yap">↗</button></div>
+    </header>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="side-label">MENAJER MASASI</div>
+        <nav id="main-nav">
+          <button class="nav-item active" data-view="home"><span>⌂</span> Genel bakış</button>
+          <button class="nav-item" data-view="lineup"><span>♟</span> Kadro ve taktik</button>
+          <button class="nav-item" data-view="matches"><span>▤</span> Fikstür ve maçlar</button>
+          <button class="nav-item" data-view="transfers"><span>⇄</span> Transfer pazarı</button>
+          <button class="nav-item" data-view="stats"><span>▥</span> İstatistikler</button>
+          <button class="nav-item" data-view="finance"><span>₺</span> Finans</button>
+          <button class="nav-item" data-view="history"><span>◷</span> Sezon arşivi</button>
+        </nav>
+        <div class="sidebar-footer"><div class="mini-ball">●</div><div><strong>Her hafta bir karar.</strong><span>Sezon 6 hafta sürer.</span></div></div>
+      </aside>
+      <main class="main-content">
+        <div id="page" aria-live="polite"></div>
+      </main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
