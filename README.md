@@ -1,101 +1,102 @@
-# Futbol Kulübü Yönetim Oyunu
+# Football Club Manager
 
-BİL372 Veritabanı Sistemleri dersi için geliştirilen bu proje, kullanıcının kendi futbol kulübünü yönettiği tek oyunculu bir menajerlik oyunudur. Projenin amacı; hesap, kariyer, kulüp, oyuncu, maç, fikstür ve transfer verilerini ilişkisel bir veritabanında modellemek ve bu veriler üzerinde çalışan bir oyunu web arayüzüyle oynanabilir hale getirmektir.
+A single-player football management game developed for the BIL372 Database Systems course. The project models accounts, careers, clubs, players, matches, fixtures, and transfers in a relational database, then makes those systems playable through a web interface.
 
-Uygulama yerel bilgisayarda çalışır. Arayüz FastAPI sunucusundan yayınlanır; oyun kuralları ve maç simülasyonu sunucuda yürütülür. Başlangıçta veriler bellekte tutulabilir, PostgreSQL kurulumu tamamlandığında kalıcı kayıt moduna geçilebilir.
+The app runs locally or as a hosted web service. The browser interface is served by FastAPI, which handles the game rules and match simulation. The demo can store data in memory; PostgreSQL can be configured for persistent storage.
 
-## Canlı demo
+## Live Demo
 
-Bu proje Render üzerinden yayınlanmaktadır: [Oyunu aç](https://footballmanagergame.onrender.com/). Ücretsiz bir sağlayıcı kullanıldığından sitenin açılması bazen birkaç saniye alabiliyor. 
-## Geliştiriciler
+[Play FootballManagerGame](https://footballmanagergame.onrender.com/)
+
+The demo is hosted on Render. The free service may go to sleep after inactivity, so the first request after a quiet period can take up to a minute to load.
+
+## Developers
 
 - Ömer Kara
 - Kubilay Filiz
 - Mohammad El Ledib
 
-## Oyun nasıl oynanır?
+## How to Play
 
-1. Hesap oluşturup giriş yap. İlk girişte kulübüne bir isim ver.
-2. Kulübün 2.000.000 başlangıç bütçesi ve 12 oyunculu kadrosuyla lige katılır. Lig, senin kulübünle birlikte üç rakipten oluşur.
-3. **Kadro ve taktik** ekranında 4-3-3 veya 4-4-2 dizilişini seç. Oyuncuları pozisyonlara yerleştirip takımının savunma, orta saha ve hücum gücünü incele. İlk 11’de aynı oyuncuyu iki kez kullanamazsın.
-4. **Genel bakış** ekranından haftayı oynat. Sunucu, o haftadaki iki karşılaşmayı simüle eder; skorları, gol ve asist olaylarını, oyuncu performanslarını ve puan tablosunu kaydeder.
-5. **Fikstür ve maçlar** ekranından maç raporlarını aç. Sahaya çıkan ilk 11’leri, dizilişleri ve maç olaylarını incele.
-6. **Transfer pazarı** ekranında rakip kulüplerin oyuncularını filtrele ve teklif ver. Teklifin sonucunu değerlendirdiğinde kabul edilen transfer bütçeni ve kadronu günceller. **Finans** ekranında gelir ve giderleri gör.
-7. Altı hafta sonunda sezon tamamlanır. **İstatistikler** ekranında oyuncu ve diziliş performansını incele, yeni sezonu başlat ve önceki sezonun sonuçlarına **Sezon arşivi** ekranından dön.
+1. Create an account and sign in. Choose a name for your club when prompted.
+2. Your club starts with a budget of 2,000,000 and a squad of 12 players. The league has four clubs in total, including yours.
+3. In **Squad & Tactics**, choose a 4-3-3 or 4-4-2 formation and assign players to positions. Review your team's defense, midfield, and attack ratings. A player cannot fill more than one starting position.
+4. From **Overview**, play the next week. The server simulates both matches scheduled that week and records scores, goals, assists, player performances, and league standings.
+5. Open **Fixtures & Matches** to review match reports, starting lineups, formations, and match events.
+6. In the **Transfer Market**, filter players from rival clubs and make offers. Evaluate an offer to see whether it is accepted; accepted transfers update your squad and budget. The **Finance** page shows transfer income and expenses.
+7. A season ends after six weeks. Review player and formation performance in **Statistics**, start a new season, and revisit completed seasons in **Season Archive**.
 
-Lig çift devrelidir: her takım diğer takımlarla bir kez evinde, bir kez deplasmanda karşılaşır. Sezon altı hafta ve toplam 12 maç sürer. Galibiyet üç, beraberlik bir puan getirir. Oyuncuların element uyumu takım gücüne bonus sağlayabilir.
+The league uses a home-and-away format: each club plays every other club once at home and once away. A season lasts six weeks and contains 12 matches. A win earns three points and a draw earns one. Element combinations among your starting players can add team-strength bonuses.
 
-## Özellikler
+## Features
 
-- Hesap oluşturma, giriş ve çıkış
-- Hesap başına ayrı kariyer ve lig
-- Kulüp adı, oyuncu kadrosu ve piyasa değerleri
-- 4-3-3 / 4-4-2 dizilişleri, ilk 11 seçimi ve mevki uyumu
-- Takım gücü ve element bonusu hesabı
-- Haftalık fikstür, maç simülasyonu, gol/asist ve oyuncu istatistikleri
-- Puan durumu, oyuncu sıralamaları ve diziliş performansı
-- Transfer pazarı, teklif değerlendirme, transfer geçmişi ve finans
-- Sezon sonu oyuncu gelişimi, yeni sezon ve sezon arşivi
-- Bellek modu ve PostgreSQL üzerinden kalıcı kayıt desteği
+- Account registration, sign-in, and sign-out
+- A separate league and career for each account
+- Club names, player squads, and market values
+- 4-3-3 and 4-4-2 formations, starting-lineup selection, and position compatibility
+- Team-strength and element-bonus calculations
+- Weekly fixtures, match simulation, goals, assists, and player statistics
+- League standings, player rankings, and formation performance
+- Transfer market, offer evaluation, transfer history, and club finances
+- End-of-season player development, new seasons, and season archives
+- In-memory demo mode and optional persistent storage with PostgreSQL
 
-## Çalıştırma
+## Run Locally
 
-Gereksinimler: Python 3.10 veya üstü ve PowerShell.
+Requirements: Python 3.10 or newer and PowerShell.
 
-Proje klasöründe bağımlılıkları kur:
+From the project directory, create a virtual environment and install the dependencies:
 
 ~~~powershell
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ~~~
 
-Demo sunucusunu başlat:
+Start the demo server:
 
 ~~~powershell
 .\run_demo.ps1
 ~~~
 
-Arayüz: http://127.0.0.1:8765
+Open the web app at http://127.0.0.1:8765. The API documentation is available at http://127.0.0.1:8765/docs.
 
-API belgeleri: http://127.0.0.1:8765/docs
-
-Betik sunucuyu bellek modunda başlatır. Elle başlatmak istersen:
+The script starts the server in memory mode. To start it manually:
 
 ~~~powershell
 $env:BIL372_USER_STORE = "memory"
 .\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8765
 ~~~
 
-Bellek modunda hesaplar, maçlar ve kariyer ilerlemesi sunucu çalıştığı sürece tutulur; sunucu yeniden başlatılınca sıfırlanır.
+In memory mode, accounts, matches, and career progress exist only while the server process is running. They reset when the server restarts.
 
-### PostgreSQL modu
+### PostgreSQL Mode
 
-Kalıcı kayıt için önce 02_PostgreSQL_Gelistirme_Rehberi.md içindeki veritabanı, rol, ODBC sürücüsü ve .env kurulum adımlarını tamamla. Ardından PowerShell’de:
+For persistent storage, follow the database, role, ODBC driver, and .env setup instructions in [the PostgreSQL Development Guide](02_PostgreSQL_Gelistirme_Rehberi.md). Then start the server with:
 
 ~~~powershell
 $env:BIL372_USER_STORE = "postgres"
 .\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8765
 ~~~
 
-run_demo.ps1 bellek modunu seçtiği için PostgreSQL’de çalıştırırken yukarıdaki komutu kullan. .env dosyası Git tarafından yok sayılır; yerel veritabanı parolalarını GitHub’a ekleme.
+The run_demo.ps1 script selects memory mode, so use the command above for PostgreSQL. The .env file is ignored by Git; do not commit local database passwords.
 
-## Proje yapısı
+## Project Structure
 
 ~~~text
-backend/       FastAPI uçları, oyun kuralları, maç motoru ve PostgreSQL katmanı
-web/           Tarayıcı arayüzü (HTML, CSS, JavaScript)
-docs/          SQL kayıt örnekleri ve OpenAPI tanımı
-render.yaml    Render için ücretsiz web servisi tanımı
-test_*.py      Backend oyun mantığı ve veri katmanı için testler
+backend/       FastAPI endpoints, game rules, match engine, and PostgreSQL layer
+web/           Browser interface (HTML, CSS, JavaScript)
+docs/          SQL examples and OpenAPI specification
+render.yaml    Render configuration for the hosted web service
+test_*.py      Tests for backend game logic and data access
 requirements.txt
 run_demo.ps1
-00_*.md        Oyun ve proje tanıtımı
-01_*.md        Arayüz geliştirme rehberi
-02_*.md        PostgreSQL ve ders teslimi rehberi
+00_*.md        Game and project overview
+01_*.md        Frontend development guide
+02_*.md        PostgreSQL and course-deliverables guide
 ~~~
 
-Arayüz JSON isteklerini aynı FastAPI sunucusuna gönderir ve kişisel uçlarda Bearer token kullanır. Backend bellek modunda kariyeri süreç belleğinde saklar; PostgreSQL modunda kariyer, kulüp, oyuncu, sezon, fikstür, maç ve transfer verileri ilişkisel tablolara yazılır.
+The interface sends JSON requests to the same FastAPI server and uses Bearer tokens for account-specific endpoints. In memory mode, the backend stores careers in process memory. In PostgreSQL mode, career, club, player, season, fixture, match, and transfer data are stored in relational tables.
 
-## Ders kapsamı
+## Course Scope
 
-Bu depoda oynanabilir web demosu, backend ve veritabanı tasarım rehberleri bulunur. Büyük sentetik veri yükleme, beş analitik sorgunun gerçek PostgreSQL üzerinde ölçülmesi ve indeks öncesi/sonrası planların raporlanması gibi ders teslim adımları 02_PostgreSQL_Gelistirme_Rehberi.md içinde ayrıca açıklanmıştır.
+This repository includes the playable web demo, backend, and database-design guides. The guides also describe separate course deliverables such as loading a large synthetic dataset, measuring five analytical SQL queries on PostgreSQL, and comparing query plans before and after indexing.
